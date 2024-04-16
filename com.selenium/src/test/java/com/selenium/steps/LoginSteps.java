@@ -6,22 +6,16 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterTest;
 
 import com.selenium.pages.Login;
+import com.selenium.utilities.BaseClass;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
-public class LoginSteps {
-	WebDriver driver;
+public class LoginSteps extends BaseClass{
 	Login login;
 	
 	@Given("I navigate to MakeMyTrip page")
 	public void i_navigate_to_make_my_trip_page() {
-		String usrdir=System.getProperty("user.dir");
-		System.out.println(usrdir);
-	    System.setProperty("webdriver.chrome.driver", usrdir+"/Drivers/chromedriver.exe");
-	    ChromeOptions options=new ChromeOptions();
-	    options.addArguments("--remote-allow-origins=*");
-	    driver = new ChromeDriver(options);
 	    login=new Login(driver);
 	    login.login();
 	    
@@ -38,6 +32,7 @@ public class LoginSteps {
 	public void i_validate_the_page_for_invalid_scenario() {
 		login.invalidValidatePage();
 		driver.close();
+		
 	}
 
 }

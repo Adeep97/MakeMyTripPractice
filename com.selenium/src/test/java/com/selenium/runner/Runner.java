@@ -9,7 +9,7 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions(features="Features",
 glue="com.selenium.steps",
 plugin={"pretty" ,"html:target/HtmlReports/report.html","json:target/JsonReports/report.json"},
-tags="@Login",
+tags="@ValidLogin",
 dryRun=false,
 monochrome=true)
 
