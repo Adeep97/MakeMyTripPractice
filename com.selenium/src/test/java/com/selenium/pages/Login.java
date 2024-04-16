@@ -1,7 +1,6 @@
 package com.selenium.pages;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 
@@ -11,7 +10,7 @@ public class Login {
 	public Login(WebDriver driver){
 		this.driver=driver;
 	}
-	
+
 	public void login() {
 		driver.get("https://www.makemytrip.com/");
 	}

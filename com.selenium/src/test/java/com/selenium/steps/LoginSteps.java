@@ -1,9 +1,6 @@
 package com.selenium.steps;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.annotations.AfterTest;
 
 import com.selenium.pages.Login;
 import com.selenium.utilities.BaseClass;
@@ -12,6 +9,8 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
 public class LoginSteps extends BaseClass{
+	BaseClass baseClass=new BaseClass();
+	WebDriver driver=baseClass.setupBrowser();
 	Login login;
 	
 	@Given("I navigate to MakeMyTrip page")

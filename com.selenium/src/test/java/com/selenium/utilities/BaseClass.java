@@ -1,6 +1,5 @@
 package com.selenium.utilities;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
@@ -10,11 +9,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 public class BaseClass {
-    protected WebDriver driver=setupBrowser();
+    protected WebDriver driver;
 	public Properties properties;
 	public FileReader file;
 	
-	private WebDriver setupBrowser() {
+	public WebDriver setupBrowser() {
 		String userdir=System.getProperty("user.dir");
 		
 		try{
