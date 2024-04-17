@@ -4,15 +4,20 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 
+import com.selenium.utilities.Utility;
+
 public class Login {
 	WebDriver driver;
+	Utility utility;
 	
 	public Login(WebDriver driver){
 		this.driver=driver;
 	}
 
 	public void login() {
-		driver.get("https://www.makemytrip.com/");
+		utility=new Utility(driver);
+		String url =utility.navigateToUrl();
+		driver.get(url);
 	}
 
 	public void validatePage() {

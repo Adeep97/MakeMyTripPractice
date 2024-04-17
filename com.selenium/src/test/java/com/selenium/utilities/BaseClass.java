@@ -1,38 +1,19 @@
 package com.selenium.utilities;
 
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.Properties;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 public class BaseClass {
     protected WebDriver driver;
-	public Properties properties;
-	public FileReader file;
+    SetupBrowser setup;
+    
 	
 	public WebDriver setupBrowser() {
-		String userdir=System.getProperty("user.dir");
-		
-		try{
-			file=new FileReader(userdir+"/src/test/resources/browser.properties");
-		}catch(Exception e) {
-			e.getStackTrace();
-		}
-		properties=new Properties();
-		try{
-			properties.load(file);
-		}catch(IOException e) {
-			e.getStackTrace();
-		}
-		System.out.println(properties.getProperty("browser"));
-		
-		String Browser=properties.getProperty("browser");
-		System.out.println("Current Browser used"+" "+Browser);
-		if(Browser.equalsIgnoreCase("Chrome")) {
-			chromeSetup();
+		setup=new SetupBrowser();
+		String browserName=setup.getBrowser();
+		if(browserName.equalsIgnoreCase("CHROME")) {
+			driver=chromeSetup();
 		}
 		return driver;
 	}
