@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 
 public class Utility {
 	WebDriver driver;
@@ -34,6 +35,24 @@ public class Utility {
     	String url=properties.getProperty("url");
     	
     	return url;
+    }
+    
+    public void titleValidation(String expectedTitle) {
+    	String actualTitle=driver.getTitle();
+		Assert.assertTrue(actualTitle.equals(expectedTitle));
+    }
+    
+    public void invalidTitleValidation(String expectedTitle) {
+    	String actualTitle=driver.getTitle();
+		try {
+		if(actualTitle.equals(expectedTitle)) {
+			System.out.println("title is correct");
+		}else {
+			throw new Exception("Title not correct");
+		}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
     }
 	
 
